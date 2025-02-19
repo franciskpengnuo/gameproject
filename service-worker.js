@@ -1,25 +1,25 @@
-const CACHE_NAME = 'math-adventure-v1';
-const ASSETS = [
-    '/',
-    '/index.html',
-    '/style.css',
-    '/game.js',
-    '/character.png',
-    '/game-bg.png',
-    '/correct.mp3',
-    '/wrong.mp3'
+const CACHE_NAME = "math-adventure-cache-v1";
+const urlsToCache = [
+    "index.html",
+    "style.css",
+    "game.js",
+    "assets/correct.mp3",
+    "assets/wrong.mp3",
+    "assets/background.png"
 ];
 
-self.addEventListener('install', (e) => {
-    e.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(ASSETS))
+self.addEventListener("install", (event) => {
+    event.waitUntil(
+        caches.open(CACHE_NAME).then((cache) => {
+            return cache.addAll(urlsToCache);
+        })
     );
 });
 
-self.addEventListener('fetch', (e) => {
-    e.respondWith(
-        caches.match(e.request)
-            .then(response => response || fetch(e.request))
+self.addEventListener("fetch", (event) => {
+    event.respondWith(
+        caches.match(event.request).then((response) => {
+            return response || fetch(event.request);
+        })
     );
 });
