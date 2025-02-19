@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #87CEEB;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: url('game-bg.png') repeat-x;
+    overflow: hidden;
+}
+
+#character {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    width: 60px;
+    height: 80px;
+    background: url('character.png') no-repeat;
+    transition: transform 0.3s;
+}
+
+.math-problem {
+    position: absolute;
+    font-size: 24px;
+    color: #fff;
+    background: #4CAF50;
+    padding: 10px;
+    border-radius: 10px;
+}

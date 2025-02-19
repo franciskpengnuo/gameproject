@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Adventure Game</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="character"></div>
+        <div id="math-problem"></div>
+        <input type="number" id="answer-input" placeholder="Enter answer">
+        <div id="score">Score: 0</div>
+        <div id="timer"></div>
+        <button id="timed-mode">Timed Challenge</button>
+        <div id="leaderboard"></div>
+    </div>
+
+    <script src="game.js"></script>
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(() => console.log('Service Worker Registered'))
+                .catch(err => console.log('Service Worker Error', err));
+        }
+    </script>
+</body>
+</html>
