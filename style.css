@@ -1,36 +1,58 @@
 body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #87CEEB;
-    font-family: 'Comic Sans MS', cursive;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('assets/background.png') no-repeat center center/cover;
 }
 
-.game-container {
+#game-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     position: relative;
-    width: 800px;
-    height: 500px;
-    background: url('game-bg.png') repeat-x;
-    overflow: hidden;
 }
 
-#character {
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
-    width: 60px;
-    height: 80px;
-    background: url('character.png') no-repeat;
-    transition: transform 0.3s;
+canvas {
+    border: 2px solid black;
+    background-color: lightblue;
 }
 
-.math-problem {
-    position: absolute;
+#math-question {
     font-size: 24px;
-    color: #fff;
-    background: #4CAF50;
+    margin: 10px;
+}
+
+#answer-input {
+    font-size: 20px;
+    padding: 5px;
+}
+
+button {
+    font-size: 18px;
     padding: 10px;
-    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.correct {
+    color: green;
+    animation: correctAnim 0.5s ease-in-out;
+}
+
+@keyframes correctAnim {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.wrong {
+    color: red;
+    animation: wrongAnim 0.5s ease-in-out;
+}
+
+@keyframes wrongAnim {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
 }
